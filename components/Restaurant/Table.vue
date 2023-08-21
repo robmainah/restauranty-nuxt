@@ -2,7 +2,11 @@
 import restaurants from '@/data.json';
 import type { IRestaurant } from "@/types/IRestaurant";
 
-const restaurantsOrganized: IRestaurant[] = {
+type restaurantsOrganized = {
+  first: IRestaurant[];
+  second: IRestaurant[];
+}
+const restaurantsOrganized: restaurantsOrganized = {
   first: [...restaurants].splice(0, 25),
   second: [...restaurants].splice(25, 25),
 }
@@ -13,13 +17,13 @@ const restaurantsOrganized: IRestaurant[] = {
     <h1>TOP 50: THE RANKING</h1>
     <div class="table-container">
       <div class="table-col">
-        <RestaurantRow isHeader="true" />
+        <RestaurantRow />
         <RestaurantRow v-for="(restaurant, index) in restaurantsOrganized.first" :key="restaurant.id"
           :name="restaurant.name" :rank="restaurant.rank" :index="index" />
       </div>
 
       <div class="table-col">
-        <RestaurantRow isHeader="true" />
+        <RestaurantRow />
         <RestaurantRow v-for="(restaurant, index) in restaurantsOrganized.second" :key="restaurant.id"
           :name="restaurant.name" :rank="restaurant.rank" :index="index" />
       </div>

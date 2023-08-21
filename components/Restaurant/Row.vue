@@ -3,14 +3,13 @@ interface Props {
   name?: string;
   rank?: number;
   index?: number;
-  isHeader: string;
 };
 
 defineProps<Props>()
 </script>
 
 <template>
-  <div class="row" v-if="isHeader">
+  <div class="row" v-if="!name">
     <h4 class="header">Rank</h4>
     <h4 class="header">Chain</h4>
   </div>
