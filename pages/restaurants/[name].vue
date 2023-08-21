@@ -4,7 +4,8 @@ import type { IRestaurant } from "@/types/IRestaurant";
 
 const route = useRoute();
 
-const restaurant = restaurants.find((restaurant) => restaurant.name.toLowerCase() === route.params.name);
+const restaurant: IRestaurant | undefined = await restaurants.find((restaurant) => restaurant.name.toLowerCase() === route.params.name);
+
 </script>
 
 <template>
